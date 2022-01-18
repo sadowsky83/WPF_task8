@@ -35,10 +35,7 @@
         <ToolBarTray Grid.Row="0">
             <ToolBar Margin="5" Padding="5">
                     <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" ItemsSource="{StaticResource fontStyle}" SelectionChanged="ComboBox_SelectionChanged"/>
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource fontSize}" SelectionChanged="ComboBox_SelectionChanged_1">
-                    <TextBlock Text="12"/>
-                    <TextBlock Text="14"/>
-                    <TextBlock Text="16"/>
+                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource fontSize}" SelectionChanged="ComboBox_SelectionChanged_1">                    
                 </ComboBox>
             </ToolBar>
             <ToolBar Margin="5" Padding="5" Background="#FFEEF5FD">
