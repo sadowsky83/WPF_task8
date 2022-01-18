@@ -1,0 +1,68 @@
+﻿<Window x:Class="WPF_task8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_task8"
+        xmlns:col="clr-namespace:System.Configuration.Assemblies;assembly=mscorlib"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" MinHeight="450" MinWidth="800">
+    <Window.CommandBindings>
+        <CommandBinding  Command="Open" Executed="OpenExecuted"/>
+        <CommandBinding  Command="Save" Executed="SaveExecuted"/>
+        <CommandBinding  Command="local:MyCommands.Exit" Executed="CloseExecuted"/>        
+    </Window.CommandBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" VerticalContentAlignment="Top" Background="#FFEEF5FD">
+            <MenuItem Header="_Файл">
+                <MenuItem Header="_Открыть" Command="Open"/>
+                <MenuItem Header="_Сохранить" Command="Save"/>
+                <Separator/>
+                <MenuItem Command="local:MyCommands.Exit"/>
+            </MenuItem>
+            <MenuItem Header="Правка">
+                <MenuItem Header="_Копировать" Command="Copy" />
+                <MenuItem Header="_Вставить" Command="Paste" />
+            </MenuItem>
+        </Menu>
+    <Grid Background="#FFEEF5FD">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ToolBarTray Grid.Row="0">
+            <ToolBar Margin="5" Padding="5">
+                    <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" ItemsSource="{StaticResource fontStyle}" SelectionChanged="ComboBox_SelectionChanged"/>
+                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" ItemsSource="{StaticResource fontSize}" SelectionChanged="ComboBox_SelectionChanged_1">
+                    <TextBlock Text="12"/>
+                    <TextBlock Text="14"/>
+                    <TextBlock Text="16"/>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5" Background="#FFEEF5FD">
+                <Button x:Name="btnBold" Height="25" Width="25" Background="#FFEEF5FD" Click="btnBold_Click">
+                    <Image Source="Data/bold.png" OpacityMask="#FFEEF5FD"/>
+                </Button>
+                <Separator/>
+                <Button x:Name="btnItalic" Height="25" Width="25" Background="#FFEEF5FD" Click="btnItalic_Click">
+                    <Image Source="Data/italic.png"/>
+                </Button>
+                <Separator/>
+                <Button x:Name="btnUnderLine" Height="25" Width="25" Background="#FFEEF5FD" Click="btnUnderLine_Click">
+                    <Image Source="Data/underline.png"/>
+                </Button>
+                <Separator/>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5">
+                <StackPanel VerticalAlignment="Center">
+                    <RadioButton x:Name="rbtnBlack" Content="Черный" IsChecked="True" Click="rbtnBlack_Click"/>
+                    <RadioButton x:Name="rbtnRed" Content="Красный" Click="rbtnRed_Click"/>
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox x:Name="textBox" Grid.Row="1" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap"/>
+    </Grid>
+    </DockPanel>
+</Window>
